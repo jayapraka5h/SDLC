@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDLC Interview Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f3ee;
+    --card: #ffffff;
+    --dark: #1a1a1a;
+    --mid: #444;
+    --muted: #888;
+    --border: #e5e2da;
+    --green: #1a7a4a;
+    --green-light: #e8f5ee;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --blue: #1a4a8a;
+    --blue-light: #eef3fc;
+    --yellow: #c47d00;
+    --yellow-light: #fef9ee;
+    --tag-bg: #1a1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--dark);
+    font-family: 'Sora', sans-serif;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--dark);
+    color: #fff;
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: 'INTERVIEW';
+    position: absolute;
+    font-size: 9rem;
+    font-weight: 800;
+    color: #ffffff06;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    letter-spacing: -4px;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff15;
+    border: 1px solid #ffffff25;
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    color: #ccc;
+  }
+
+  header h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+
+  header h1 span { color: #ffd93d; }
+
+  header p {
+    color: #aaa;
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  .section-label span {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── INTERVIEW BLOCK ── */
+  .interview-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px #00000008;
+  }
+
+  .question-bar {
+    background: var(--dark);
+    padding: 16px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .q-icon {
+    background: #ffd93d;
+    color: #000;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 3px 9px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  .question-text {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .answer-body {
+    padding: 22px 22px 20px;
+  }
+
+  /* ── ANSWER STYLES ── */
+  .answer-intro {
+    font-size: 1rem;
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .answer-detail {
+    color: var(--mid);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  /* ── PHASE STEPS ── */
+  .phase-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .phase-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 16px;
+    background: #fafaf8;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: background 0.15s;
+  }
+
+  .phase-step:hover { background: #f0ede6; }
+
+  .step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: var(--dark);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-content { flex: 1; }
+
+  .step-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--dark);
+    margin-bottom: 2px;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── DO / DON'T ── */
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 560px) { .do-dont { grid-template-columns: 1fr; } }
+
+  .do-box, .dont-box {
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .do-box {
+    background: var(--green-light);
+    border: 1px solid #b8dfc8;
+  }
+
+  .dont-box {
+    background: var(--red-light);
+    border: 1px solid #f0c4bc;
+  }
+
+  .box-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .do-box .box-header { color: var(--green); }
+  .dont-box .box-header { color: var(--red); }
+
+  .box-item {
+    font-size: 0.83rem;
+    color: var(--mid);
+    margin-bottom: 6px;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .box-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+
+  .do-box .box-item::before { color: var(--green); }
+  .dont-box .box-item::before { color: var(--red); }
+
+  /* ── ANSWER TEMPLATE ── */
+  .answer-template {
+    background: var(--dark);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 14px;
+  }
+
+  .template-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffd93d;
+    margin-bottom: 12px;
+  }
+
+  .template-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: #e0e0e0;
+    line-height: 1.9;
+  }
+
+  .template-text .highlight { color: #ffd93d; font-weight: 600; }
+  .template-text .phase-name { color: #7ec8ff; }
+  .template-text .example { color: #98e4b0; }
+
+  /* ── TIP BOX ── */
+  .tip-box {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-top: 14px;
+  }
+
+  .tip-box.yellow {
+    background: var(--yellow-light);
+    border: 1px solid #f0d888;
+  }
+
+  .tip-box.blue {
+    background: var(--blue-light);
+    border: 1px solid #b8cef0;
+  }
+
+  .tip-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+  .tip-content { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+  .tip-content strong { color: var(--dark); display: block; margin-bottom: 3px; }
+
+  /* ── SCORE METER ── */
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .score-label { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+
+  .score-bar {
+    flex: 1;
+    min-width: 120px;
+    height: 6px;
+    background: #e5e2da;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .score-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #1a7a4a, #2ecc71);
+  }
+
+  .score-val {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  /* ── FULL ANSWER CARD ── */
+  .full-answer {
+    background: #fffef9;
+    border: 2px solid #ffd93d;
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .full-answer::before {
+    content: '★ STAR ANSWER';
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #c47d00;
+    background: #ffd93d44;
+    padding: 3px 10px;
+    border-radius: 50px;
+  }
+
+  .full-answer p {
+    font-size: 0.95rem;
+    color: var(--dark);
+    line-height: 1.9;
+    margin-bottom: 10px;
+  }
+
+  .full-answer p:last-child { margin-bottom: 0; }
+
+  .inline-bold { font-weight: 700; color: var(--dark); }
+  .inline-green { font-weight: 700; color: var(--green); }
+
+  /* ── FOLLOW-UP GRID ── */
+  .followup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 560px) { .followup-grid { grid-template-columns: 1fr; } }
+
+  .followup-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .followup-q {
+    background: #f0ede6;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--dark);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .followup-a {
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  .followup-a strong { color: var(--dark); }
+
+  /* ── CHEAT SHEET ── */
+  .cheat-sheet {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 4px;
+    color: #fff;
+  }
+
+  .cheat-title {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffd93d;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .cheat-row {
+    display: grid;
+    grid-template-columns: 28px 160px 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 10px 0;
+    border-bottom: 1px solid #ffffff10;
+    font-size: 0.85rem;
+  }
+
+  .cheat-row:last-child { border-bottom: none; }
+
+  .cheat-num {
+    background: #ffffff15;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffd93d;
+    flex-shrink: 0;
+  }
+
+  .cheat-phase { color: #7ec8ff; font-weight: 600; }
+  .cheat-line { color: #bbb; line-height: 1.5; }
+  .cheat-line em { color: #98e4b0; font-style: normal; font-size: 0.78rem; }
+
+  /* ── FOOTER ── */
+  .footer-tip {
+    margin-top: 40px;
+    text-align: center;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .footer-tip p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+  .footer-tip strong { color: var(--dark); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">🎯 Interview Preparation</div>
+  <h1>SDLC — <span>Answer Like a Pro</span></h1>
+  <p>Exactly how to explain SDLC in an interview — word by word, with real examples.</p>
+</header>
+
+<main>
+
+  <!-- ── Q1 ── -->
+  <div class="section-label"><span>Question 1 — Most Common</span></div>
+
+  <div class="interview-block">
+    <div class="question-bar">
+      <span class="q-icon">Q</span>
+      <span class="question-text">"What is SDLC? Can you explain it?"</span>
+    </div>
+    <div class="answer-body">
+
+      <div class="tip-box yellow">
+        <div class="tip-icon">💡</div>
+        <div class="tip-content">
+          <strong>Strategy: Definition → Phases → Example → Benefit</strong>
+          Always start with a 1-line definition, then mention all 6 phases by name, then give a real-world example. This structure makes you sound very organized.
+        </div>
+      </div>
+
+      <div class="full-answer" style="margin-top: 16px;">
+        <p>
+          <span class="inline-bold">"SDLC stands for Software Development Life Cycle.</span> It is a structured process that software companies follow to plan, build, test, and deliver software in a systematic and organized way."
+        </p>
+        <p>
+          "It has <span class="inline-bold">6 phases</span> — <span class="inline-green">Requirements, Analysis, Design, Coding, Testing, and Delivery & Maintenance.</span> Each phase has specific tasks, roles, and a proof document as output."
+        </p>
+        <p>
+          "For example — if a company wants to build a food delivery app like Zomato, they won't just start coding directly. First they gather requirements from the client, then analyze if it is feasible, then design the architecture, then developers write the code, then testers find bugs, and finally the app is delivered to the client."
+        </p>
+        <p>
+          "The main benefit of SDLC is that it brings <span class="inline-bold">clarity, discipline, and quality</span> to software development so that the final product meets the client's expectations within time and budget."
+        </p>
+      </div>
+
+      <div class="score-row">
+        <span class="score-label">Answer strength</span>
+        <div class="score-bar"><div class="score-fill" style="width: 95%"></div></div>
+        <span class="score-val">Excellent ✓</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Q2 ── -->
+  <div class="section-label"><span>Question 2 — Phases Deep Dive</span></div>
+
+  <div class="interview-block">
+    <div class="question-bar">
+      <span class="q-icon">Q</span>
+      <span class="question-text">"Can you explain all 6 phases of SDLC with an example?"</span>
+    </div>
+    <div class="answer-body">
+
+      <p class="answer-intro">Say this first: <em>"Sure! Let me explain each phase using the example of building a food delivery app."</em></p>
+
+      <div class="phase-steps">
+
+        <div class="phase-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Requirements Phase</div>
+            <div class="step-desc">"In this phase, a Business Analyst meets the client and collects all the requirements — what features the software should have. The output is a requirements document like FRS or BDD. <em style="color:#1a7a4a">Example: The BA asks the QuickBite founder — do you want OTP login? GPS tracking? Cash on delivery?</em>"</div>
+          </div>
+        </div>
+
+        <div class="phase-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Analysis Phase</div>
+            <div class="step-desc">"The System Analyst checks if the requirements are technically and financially feasible. They select the technology and do resource and time planning. The output is the SRS document. <em style="color:#1a7a4a">Example: They decide to use React Native, 10 developers, 6 months timeline.</em>"</div>
+          </div>
+        </div>
+
+        <div class="phase-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Design Phase</div>
+            <div class="step-desc">"The Chief Architect creates a high-level design — breaking the project into modules. The Technical Lead does low-level design — breaking modules into sub-modules and writing pseudo code. Output is the Technical Design Document. <em style="color:#1a7a4a">Example: The app is split into Customer App, Restaurant App, and Delivery App.</em>"</div>
+          </div>
+        </div>
+
+        <div class="phase-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Coding Phase</div>
+            <div class="step-desc">"Developers write the actual code based on the design document, following coding standards like proper indentation, naming conventions, and commenting. Output is the source code. <em style="color:#1a7a4a">Example: One team builds login, another builds payment, another builds GPS tracking.</em>"</div>
+          </div>
+        </div>
+
+        <div class="phase-step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Testing Phase</div>
+            <div class="step-desc">"Test engineers verify the software against requirements. They write test cases, execute them, log defects, and re-test after fixes. This cycle continues until the product is defect-free. Output is a quality product. <em style="color:#1a7a4a">Example: Testers check — what happens if payment fails midway? Does GPS update live?</em>"</div>
+          </div>
+        </div>
+
+        <div class="phase-step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-title">Delivery & Maintenance Phase</div>
+            <div class="step-desc">"The deployment engineer installs the software in the client's environment. After delivery, any issues are fixed by the maintenance team. <em style="color:#1a7a4a">Example: The app is published on Play Store. Later, a bug is found and fixed in the next update.</em>"</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tip-box blue" style="margin-top: 4px;">
+        <div class="tip-icon">🎯</div>
+        <div class="tip-content">
+          <strong>Pro Tip</strong>
+          After explaining all 6 phases, end with: <em>"This structured approach ensures the software is built correctly, on time, and within budget."</em> — This closing line makes you sound professional.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Q3 ── -->
+  <div class="section-label"><span>Question 3 — Role-Based</span></div>
+
+  <div class="interview-block">
+    <div class="question-bar">
+      <span class="q-icon">Q</span>
+      <span class="question-text">"Who are the key people involved in SDLC?"</span>
+    </div>
+    <div class="answer-body">
+      <div class="answer-template">
+        <div class="template-label">📋 Say This — Word by Word</div>
+        <div class="template-text">
+<span class="highlight">"In SDLC, different roles are involved at different phases:"</span><br><br>
+<span class="phase-name">Phase 1 – Requirements:</span> <span class="example">Business Analyst and Engagement Manager</span><br>
+<span class="phase-name">Phase 2 – Analysis:</span> <span class="example">System Analyst, Project Manager, Team Manager</span><br>
+<span class="phase-name">Phase 3 – Design:</span> <span class="example">Chief Architect and Technical Lead</span><br>
+<span class="phase-name">Phase 4 – Coding:</span> <span class="example">Developers / Programmers</span><br>
+<span class="phase-name">Phase 5 – Testing:</span> <span class="example">Test Engineers / QA Engineers</span><br>
+<span class="phase-name">Phase 6 – Delivery:</span> <span class="example">Deployment Engineer, Senior Test Engineers</span><br><br>
+<span class="highlight">"Each role has specific responsibilities and produces a proof document at the end of their phase."</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Q4 ── -->
+  <div class="section-label"><span>Question 4 — Documents</span></div>
+
+  <div class="interview-block">
+    <div class="question-bar">
+      <span class="q-icon">Q</span>
+      <span class="question-text">"What are the documents produced in SDLC?"</span>
+    </div>
+    <div class="answer-body">
+      <div class="answer-template">
+        <div class="template-label">📋 Say This Confidently</div>
+        <div class="template-text">
+<span class="highlight">"Each phase of SDLC produces a document as proof of work:"</span><br><br>
+<span class="phase-name">Requirements Phase →</span> <span class="example">FRS (Functional Requirement Specification), BDD, CRS</span><br>
+<span class="phase-name">Analysis Phase →</span> <span class="example">SRS (System Requirement Specification)</span><br>
+<span class="phase-name">Design Phase →</span> <span class="example">Technical Design Document (TDD)</span><br>
+<span class="phase-name">Coding Phase →</span> <span class="example">Source Code Document</span><br>
+<span class="phase-name">Testing Phase →</span> <span class="example">Test Cases, Defect Report, Quality Product</span><br>
+<span class="phase-name">Delivery Phase →</span> <span class="example">Deployment Document</span><br><br>
+<span class="highlight">"These documents ensure every team has clear communication and nothing is missed."</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DO / DON'T ── -->
+  <div class="section-label"><span>Do's & Don'ts in Interview</span></div>
+
+  <div class="interview-block">
+    <div class="answer-body">
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="box-header">✅ Always Do This</div>
+          <div class="box-item">Start with a clear one-line definition</div>
+          <div class="box-item">Always mention all 6 phases by name</div>
+          <div class="box-item">Use a real-world example (food app, bank app)</div>
+          <div class="box-item">Mention the role for each phase</div>
+          <div class="box-item">End with the "benefit" of SDLC</div>
+          <div class="box-item">Speak slowly and confidently</div>
+        </div>
+        <div class="dont-box">
+          <div class="box-header">❌ Never Do This</div>
+          <div class="box-item">Don't just list phases without explaining</div>
+          <div class="box-item">Don't forget to give an example</div>
+          <div class="box-item">Don't say "I don't know the documents"</div>
+          <div class="box-item">Don't mix up phases or roles</div>
+          <div class="box-item">Don't rush — take your time</div>
+          <div class="box-item">Don't read from memory like a robot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOLLOW UP Q's ── -->
+  <div class="section-label"><span>Common Follow-Up Questions</span></div>
+
+  <div class="followup-grid">
+    <div class="followup-card">
+      <div class="followup-q">❓ What is a prototype in SDLC?</div>
+      <div class="followup-a">"A prototype is a rough model of the software shown to the client to confirm requirements. It is used when requirements are unclear, to gain client confidence."</div>
+    </div>
+    <div class="followup-card">
+      <div class="followup-q">❓ What is the difference between SRS and FRS?</div>
+      <div class="followup-a"><strong>FRS</strong> — written by BA after meeting client, covers business requirements. <strong>SRS</strong> — written by System Analyst, covers technical feasibility and system specs.</div>
+    </div>
+    <div class="followup-card">
+      <div class="followup-q">❓ What happens if requirements are unclear?</div>
+      <div class="followup-a">"The Engagement Manager is responsible. He either deals extra cost with the client or builds a prototype to gather clear requirements."</div>
+    </div>
+    <div class="followup-card">
+      <div class="followup-q">❓ Who does testing in SDLC?</div>
+      <div class="followup-a">"Test Engineers or QA Engineers. They read the requirements document, write test cases, execute them on builds, and log defects until the product is defect-free."</div>
+    </div>
+    <div class="followup-card">
+      <div class="followup-q">❓ What is high-level vs low-level design?</div>
+      <div class="followup-a"><strong>High-level</strong> — done by Chief Architect. Divides project into modules. <strong>Low-level</strong> — done by Technical Lead. Divides modules into sub-modules + pseudo code.</div>
+    </div>
+    <div class="followup-card">
+      <div class="followup-q">❓ What is maintenance in SDLC?</div>
+      <div class="followup-a">"After delivery, if any issue occurs in the live software, the maintenance team fixes it. Some clients have a dedicated maintenance team working permanently at their site."</div>
+    </div>
+  </div>
+
+  <!-- ── CHEAT SHEET ── -->
+  <div class="section-label"><span>Quick Revision Cheat Sheet</span></div>
+
+  <div class="cheat-sheet">
+    <div class="cheat-title">📌 30-Second Memory Card — Read Before Interview</div>
+
+    <div class="cheat-row">
+      <div class="cheat-num">1</div>
+      <div class="cheat-phase">Requirements</div>
+      <div class="cheat-line">BA gathers client needs → <em>Output: FRS / BDD</em></div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-num">2</div>
+      <div class="cheat-phase">Analysis</div>
+      <div class="cheat-line">Feasibility, tech selection, planning → <em>Output: SRS</em></div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-num">3</div>
+      <div class="cheat-phase">Design</div>
+      <div class="cheat-line">Architect + Tech Lead draw blueprints → <em>Output: TDD</em></div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-num">4</div>
+      <div class="cheat-phase">Coding</div>
+      <div class="cheat-line">Developers write actual code → <em>Output: Source Code</em></div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-num">5</div>
+      <div class="cheat-phase">Testing</div>
+      <div class="cheat-line">QA finds & fixes bugs → <em>Output: Defect-free Product</em></div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-num">6</div>
+      <div class="cheat-phase">Delivery & Maintenance</div>
+      <div class="cheat-line">Deploy to client + fix issues → <em>Output: Live Software</em></div>
+    </div>
+  </div>
+
+  <div class="footer-tip">
+    <p>🎤 <strong>Golden Rule for Interviews:</strong> Always answer as a <strong>story</strong> — "First this happens, then this, then this..." It shows you truly understand SDLC, not just memorized it. Use the <strong>food delivery app example</strong> — every interviewer can relate to it!</p>
+  </div>
+
+</main>
+</body>
+</html>
