@@ -31,6 +31,9 @@
     color: var(--dark);
     font-family: 'Sora', sans-serif;
     line-height: 1.6;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
 
   /* ── HEADER ── */
@@ -777,6 +780,9 @@
   <div class="footer-tip">
     <p>🎤 <strong>Golden Rule for Interviews:</strong> Always answer as a <strong>story</strong> — "First this happens, then this, then this..." It shows you truly understand SDLC, not just memorized it. Use the <strong>food delivery app example</strong> — every interviewer can relate to it!</p>
   </div>
+  <div class="footer-tip">
+    <strong>Short Version </strong>-> SDLC is a step-by-step process used in software development that includes Requirement, Analysis, Design, Coding, Testing, and Maintenance phases to deliver a high-quality product.
+  </div>
 
   <div style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
     <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Follow for more content</p>
@@ -789,5 +795,26 @@
   </div>
 
 </main>
+
+<script>
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Disable specific keyboard shortcuts for inspect element and copying
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) || 
+        (e.ctrlKey && (e.key === 'U' || e.key === 'u')) ||
+        (e.ctrlKey && (e.key === 'C' || e.key === 'c'))) {
+        e.preventDefault();
+    }
+  });
+
+  // Prevent drag and drop text copying
+  document.addEventListener('dragstart', event => event.preventDefault());
+</script>
+
 </body>
 </html>
