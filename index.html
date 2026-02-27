@@ -21,22 +21,17 @@
     --blue-light: #eef3fc;
     --yellow: #c47d00;
     --yellow-light: #fef9ee;
-    --tag-bg: #1a1a1a;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     background: var(--bg);
     color: var(--dark);
     font-family: 'Sora', sans-serif;
     line-height: 1.6;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
-
-  /* ── HEADER ── */
   header {
     background: var(--dark);
     color: #fff;
@@ -45,7 +40,6 @@
     position: relative;
     overflow: hidden;
   }
-
   header::after {
     content: 'INTERVIEW';
     position: absolute;
@@ -58,7 +52,6 @@
     pointer-events: none;
     letter-spacing: -4px;
   }
-
   .header-badge {
     display: inline-flex;
     align-items: center;
@@ -74,55 +67,19 @@
     margin-bottom: 18px;
     color: #ccc;
   }
-
-  header h1 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 12px;
-  }
-
+  header h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
   header h1 span { color: #ffd93d; }
-
-  header p {
-    color: #aaa;
-    font-size: 0.95rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  /* ── MAIN ── */
-  main {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 40px 20px 60px;
-  }
-
-  /* ── SECTION LABEL ── */
+  header p { color: #aaa; font-size: 0.95rem; max-width: 500px; margin: 0 auto; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
   .section-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    margin-top: 40px;
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; margin-top: 40px;
   }
-
   .section-label span {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--muted);
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px; color: var(--muted);
   }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* ── INTERVIEW BLOCK ── */
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
   .interview-block {
     background: var(--card);
     border: 1px solid var(--border);
@@ -131,375 +88,144 @@
     margin-bottom: 16px;
     box-shadow: 0 2px 8px #00000008;
   }
-
   .question-bar {
     background: var(--dark);
     padding: 16px 22px;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    display: flex; align-items: flex-start; gap: 14px;
   }
-
   .q-icon {
-    background: #ffd93d;
-    color: #000;
-    font-weight: 800;
-    font-size: 0.75rem;
-    padding: 3px 9px;
-    border-radius: 6px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    letter-spacing: 0.5px;
+    background: #ffd93d; color: #000; font-weight: 800;
+    font-size: 0.75rem; padding: 3px 9px; border-radius: 6px;
+    flex-shrink: 0; margin-top: 2px; letter-spacing: 0.5px;
   }
+  .question-text { color: #fff; font-weight: 600; font-size: 1rem; }
+  .answer-body { padding: 22px 22px 20px; }
+  .answer-intro { font-size: 1rem; color: var(--dark); font-weight: 600; margin-bottom: 12px; line-height: 1.6; }
 
-  .question-text {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-
-  .answer-body {
-    padding: 22px 22px 20px;
-  }
-
-  /* ── ANSWER STYLES ── */
-  .answer-intro {
-    font-size: 1rem;
-    color: var(--dark);
-    font-weight: 600;
-    margin-bottom: 12px;
-    line-height: 1.6;
-  }
-
-  .answer-detail {
-    color: var(--mid);
-    font-size: 0.92rem;
-    line-height: 1.7;
-    margin-bottom: 14px;
-  }
-
-  /* ── PHASE STEPS ── */
-  .phase-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 16px 0;
-  }
-
-  .phase-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 12px 16px;
+  /* ── PHASE STEP WITH CUSTOM IMAGE ── */
+  .phase-step-with-img {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 16px;
+    align-items: start;
+    padding: 16px;
     background: #fafaf8;
     border: 1px solid var(--border);
-    border-radius: 10px;
-    transition: background 0.15s;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
   }
-
-  .phase-step:hover { background: #f0ede6; }
-
+  .phase-step-with-img:hover {
+    background: #f0ede6;
+    border-color: #ccc;
+    transform: translateX(3px);
+  }
+  .phase-step-left { display: flex; gap: 14px; align-items: flex-start; }
   .step-num {
-    width: 26px;
-    height: 26px;
-    border-radius: 8px;
-    background: var(--dark);
-    color: #fff;
-    font-size: 0.72rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--dark); color: #fff;
+    font-size: 0.72rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
   }
-
   .step-content { flex: 1; }
-
-  .step-title {
-    font-weight: 700;
-    font-size: 0.88rem;
-    color: var(--dark);
-    margin-bottom: 2px;
+  .step-title { font-weight: 700; font-size: 0.9rem; color: var(--dark); margin-bottom: 5px; }
+  .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+  .phase-illus {
+    flex-shrink: 0;
+    width: 200px;
   }
-
-  .step-desc {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* ── DO / DON'T ── */
-  .do-dont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 14px;
-  }
-
-  @media (max-width: 560px) { .do-dont { grid-template-columns: 1fr; } }
-
-  .do-box, .dont-box {
+  .phase-illus img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
     border-radius: 10px;
-    padding: 14px 16px;
+    border: 2px solid var(--border);
+    display: block;
+    transition: transform 0.2s;
   }
-
-  .do-box {
-    background: var(--green-light);
-    border: 1px solid #b8dfc8;
-  }
-
-  .dont-box {
-    background: var(--red-light);
-    border: 1px solid #f0c4bc;
-  }
-
-  .box-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.75rem;
+  .phase-illus img:hover { transform: scale(1.03); }
+  .phase-illus-label {
+    font-size: 0.65rem;
     font-weight: 700;
+    color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 5px;
+  }
+  @media (max-width: 620px) {
+    .phase-step-with-img { grid-template-columns: 1fr; }
+    .phase-illus { width: 100%; }
+    .phase-illus img { height: 160px; }
   }
 
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  @media (max-width: 560px) { .do-dont { grid-template-columns: 1fr; } }
+  .do-box { background: var(--green-light); border: 1px solid #b8dfc8; border-radius: 10px; padding: 14px 16px; }
+  .dont-box { background: var(--red-light); border: 1px solid #f0c4bc; border-radius: 10px; padding: 14px 16px; }
+  .box-header { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
   .do-box .box-header { color: var(--green); }
   .dont-box .box-header { color: var(--red); }
-
-  .box-item {
-    font-size: 0.83rem;
-    color: var(--mid);
-    margin-bottom: 6px;
-    padding-left: 14px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .box-item::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-  }
-
+  .box-item { font-size: 0.83rem; color: var(--mid); margin-bottom: 6px; padding-left: 14px; position: relative; line-height: 1.5; }
+  .box-item::before { content: '•'; position: absolute; left: 0; font-weight: 700; }
   .do-box .box-item::before { color: var(--green); }
   .dont-box .box-item::before { color: var(--red); }
 
-  /* ── ANSWER TEMPLATE ── */
-  .answer-template {
-    background: var(--dark);
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 14px;
-  }
-
-  .template-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #ffd93d;
-    margin-bottom: 12px;
-  }
-
-  .template-text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    color: #e0e0e0;
-    line-height: 1.9;
-  }
-
+  .answer-template { background: var(--dark); border-radius: 12px; padding: 20px; margin-top: 14px; }
+  .template-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ffd93d; margin-bottom: 12px; }
+  .template-text { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #e0e0e0; line-height: 1.9; }
   .template-text .highlight { color: #ffd93d; font-weight: 600; }
   .template-text .phase-name { color: #7ec8ff; }
   .template-text .example { color: #98e4b0; }
 
-  /* ── TIP BOX ── */
-  .tip-box {
-    display: flex;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 10px;
-    margin-top: 14px;
-  }
-
-  .tip-box.yellow {
-    background: var(--yellow-light);
-    border: 1px solid #f0d888;
-  }
-
-  .tip-box.blue {
-    background: var(--blue-light);
-    border: 1px solid #b8cef0;
-  }
-
+  .tip-box { display: flex; gap: 12px; padding: 14px 16px; border-radius: 10px; margin-top: 14px; }
+  .tip-box.yellow { background: var(--yellow-light); border: 1px solid #f0d888; }
+  .tip-box.blue { background: var(--blue-light); border: 1px solid #b8cef0; }
   .tip-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-
   .tip-content { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
   .tip-content strong { color: var(--dark); display: block; margin-bottom: 3px; }
 
-  /* ── SCORE METER ── */
-  .score-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 14px;
-    flex-wrap: wrap;
-  }
-
+  .score-row { display: flex; align-items: center; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
   .score-label { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+  .score-bar { flex: 1; min-width: 120px; height: 6px; background: #e5e2da; border-radius: 10px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, #1a7a4a, #2ecc71); }
+  .score-val { font-size: 0.78rem; font-weight: 700; color: var(--green); }
 
-  .score-bar {
-    flex: 1;
-    min-width: 120px;
-    height: 6px;
-    background: #e5e2da;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .score-fill {
-    height: 100%;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #1a7a4a, #2ecc71);
-  }
-
-  .score-val {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--green);
-  }
-
-  /* ── FULL ANSWER CARD ── */
   .full-answer {
-    background: #fffef9;
-    border: 2px solid #ffd93d;
-    border-radius: 16px;
-    padding: 28px;
-    margin-top: 14px;
-    position: relative;
-    overflow: hidden;
+    background: #fffef9; border: 2px solid #ffd93d;
+    border-radius: 16px; padding: 28px; margin-top: 14px;
+    position: relative; overflow: hidden;
   }
-
   .full-answer::before {
     content: '★ STAR ANSWER';
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #c47d00;
-    background: #ffd93d44;
-    padding: 3px 10px;
-    border-radius: 50px;
+    position: absolute; top: 12px; right: 16px;
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px;
+    color: #c47d00; background: #ffd93d44;
+    padding: 3px 10px; border-radius: 50px;
   }
-
-  .full-answer p {
-    font-size: 0.95rem;
-    color: var(--dark);
-    line-height: 1.9;
-    margin-bottom: 10px;
-  }
-
+  .full-answer p { font-size: 0.95rem; color: var(--dark); line-height: 1.9; margin-bottom: 10px; }
   .full-answer p:last-child { margin-bottom: 0; }
-
   .inline-bold { font-weight: 700; color: var(--dark); }
   .inline-green { font-weight: 700; color: var(--green); }
 
-  /* ── FOLLOW-UP GRID ── */
-  .followup-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 4px;
-  }
-
+  .followup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
   @media (max-width: 560px) { .followup-grid { grid-template-columns: 1fr; } }
-
-  .followup-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .followup-q {
-    background: #f0ede6;
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--dark);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .followup-a {
-    padding: 12px 14px;
-    font-size: 0.82rem;
-    color: var(--mid);
-    line-height: 1.6;
-  }
-
+  .followup-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .followup-q { background: #f0ede6; padding: 10px 14px; font-size: 0.82rem; font-weight: 700; color: var(--dark); border-bottom: 1px solid var(--border); }
+  .followup-a { padding: 12px 14px; font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
   .followup-a strong { color: var(--dark); }
 
-  /* ── CHEAT SHEET ── */
-  .cheat-sheet {
-    background: var(--dark);
-    border-radius: 16px;
-    padding: 28px;
-    margin-top: 4px;
-    color: #fff;
-  }
-
-  .cheat-title {
-    font-size: 0.72rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #ffd93d;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-
-  .cheat-row {
-    display: grid;
-    grid-template-columns: 28px 160px 1fr;
-    gap: 14px;
-    align-items: start;
-    padding: 10px 0;
-    border-bottom: 1px solid #ffffff10;
-    font-size: 0.85rem;
-  }
-
+  .cheat-sheet { background: var(--dark); border-radius: 16px; padding: 28px; margin-top: 4px; color: #fff; }
+  .cheat-title { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: #ffd93d; font-weight: 700; margin-bottom: 18px; }
+  .cheat-row { display: grid; grid-template-columns: 28px 160px 1fr; gap: 14px; align-items: start; padding: 10px 0; border-bottom: 1px solid #ffffff10; font-size: 0.85rem; }
   .cheat-row:last-child { border-bottom: none; }
-
-  .cheat-num {
-    background: #ffffff15;
-    width: 26px;
-    height: 26px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #ffd93d;
-    flex-shrink: 0;
-  }
-
+  .cheat-num { background: #ffffff15; width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #ffd93d; flex-shrink: 0; }
   .cheat-phase { color: #7ec8ff; font-weight: 600; }
   .cheat-line { color: #bbb; line-height: 1.5; }
   .cheat-line em { color: #98e4b0; font-style: normal; font-size: 0.78rem; }
 
-  /* ── FOOTER ── */
-  .footer-tip {
-    margin-top: 40px;
-    text-align: center;
-    padding: 24px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-  }
-
+  .footer-tip { margin-top: 40px; text-align: center; padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
   .footer-tip p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
   .footer-tip strong { color: var(--dark); }
 </style>
@@ -514,16 +240,14 @@
 
 <main>
 
-  <!-- ── Q1 ── -->
+  <!-- Q1 -->
   <div class="section-label"><span>Question 1 — Most Common</span></div>
-
   <div class="interview-block">
     <div class="question-bar">
       <span class="q-icon">Q</span>
       <span class="question-text">"What is SDLC? Can you explain it?"</span>
     </div>
     <div class="answer-body">
-
       <div class="tip-box yellow">
         <div class="tip-icon">💡</div>
         <div class="tip-content">
@@ -531,93 +255,118 @@
           Always start with a 1-line definition, then mention all 6 phases by name, then give a real-world example. This structure makes you sound very organized.
         </div>
       </div>
-
       <div class="full-answer" style="margin-top: 16px;">
-        <p>
-          <span class="inline-bold">"SDLC stands for Software Development Life Cycle.</span> It is a structured process that software companies follow to plan, build, test, and deliver software in a systematic and organized way."
-        </p>
-        <p>
-          "It has <span class="inline-bold">6 phases</span> — <span class="inline-green">Requirements, Analysis, Design, Coding, Testing, and Delivery & Maintenance.</span> Each phase has specific tasks, roles, and a proof document as output."
-        </p>
-        <p>
-          "For example — if a company wants to build a food delivery app like Zomato, they won't just start coding directly. First they gather requirements from the client, then analyze if it is feasible, then design the architecture, then developers write the code, then testers find bugs, and finally the app is delivered to the client."
-        </p>
-        <p>
-          "The main benefit of SDLC is that it brings <span class="inline-bold">clarity, discipline, and quality</span> to software development so that the final product meets the client's expectations within time and budget."
-        </p>
+        <p><span class="inline-bold">"SDLC stands for Software Development Life Cycle.</span> It is a structured process that software companies follow to plan, build, test, and deliver software in a systematic and organized way."</p>
+        <p>"It has <span class="inline-bold">6 phases</span> — <span class="inline-green">Requirements, Analysis, Design, Coding, Testing, and Delivery &amp; Maintenance.</span> Each phase has specific tasks, roles, and a proof document as output."</p>
+        <p>"For example — if a company wants to build a food delivery app like Zomato, they won't just start coding directly. First they gather requirements from the client, then analyze if it is feasible, then design the architecture, then developers write the code, then testers find bugs, and finally the app is delivered to the client."</p>
+        <p>"The main benefit of SDLC is that it brings <span class="inline-bold">clarity, discipline, and quality</span> to software development so that the final product meets the client's expectations within time and budget."</p>
       </div>
-
       <div class="score-row">
         <span class="score-label">Answer strength</span>
         <div class="score-bar"><div class="score-fill" style="width: 95%"></div></div>
         <span class="score-val">Excellent ✓</span>
       </div>
-
     </div>
   </div>
 
-  <!-- ── Q2 ── -->
+  <!-- Q2 -->
   <div class="section-label"><span>Question 2 — Phases Deep Dive</span></div>
-
   <div class="interview-block">
     <div class="question-bar">
       <span class="q-icon">Q</span>
       <span class="question-text">"Can you explain all 6 phases of SDLC with an example?"</span>
     </div>
     <div class="answer-body">
-
       <p class="answer-intro">Say this first: <em>"Sure! Let me explain each phase using the example of building a food delivery app."</em></p>
 
-      <div class="phase-steps">
-
-        <div class="phase-step">
+      <!-- Phase 1 -->
+      <div class="phase-step-with-img">
+        <div class="phase-step-left">
           <div class="step-num">1</div>
           <div class="step-content">
             <div class="step-title">Requirements Phase</div>
             <div class="step-desc">"In this phase, a Business Analyst meets the client and collects all the requirements — what features the software should have. The output is a requirements document like FRS or BDD. <em style="color:#1a7a4a">Example: The BA asks the QuickBite founder — do you want OTP login? GPS tracking? Cash on delivery?</em>"</div>
           </div>
         </div>
+        <div class="phase-illus">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgMTgwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxYTRhOGE7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzI1NjNlYjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCIgZmlsbD0idXJsKCNiZzEpIiByeD0iMTIiLz4KICA8IS0tIFRhYmxlIC0tPgogIDxlbGxpcHNlIGN4PSIxNDAiIGN5PSIxMDUiIHJ4PSI5MCIgcnk9IjQwIiBmaWxsPSIjMWUzYTZlIiBzdHJva2U9IiM0ZDk2ZmYiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gRG9jdW1lbnRzIG9uIHRhYmxlIC0tPgogIDxyZWN0IHg9IjEwMCIgeT0iODgiIHdpZHRoPSIzNSIgaGVpZ2h0PSIyOCIgcng9IjMiIGZpbGw9IiNmZmZmZmYiIHRyYW5zZm9ybT0icm90YXRlKC0xMCAxMTcgMTAyKSIvPgogIDxyZWN0IHg9IjEwMyIgeT0iOTEiIHdpZHRoPSIyOSIgaGVpZ2h0PSI0IiByeD0iMSIgZmlsbD0iIzRkOTZmZiIgdHJhbnNmb3JtPSJyb3RhdGUoLTEwIDExNyA5MykiLz4KICA8cmVjdCB4PSIxMDMiIHk9Ijk3IiB3aWR0aD0iMjIiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiNjY2MiIHRyYW5zZm9ybT0icm90YXRlKC0xMCAxMTQgOTgpIi8+CiAgPHJlY3QgeD0iMTAzIiB5PSIxMDEiIHdpZHRoPSIyNSIgaGVpZ2h0PSIyIiByeD0iMSIgZmlsbD0iI2NjYyIgdHJhbnNmb3JtPSJyb3RhdGUoLTEwIDExNSAxMDIpIi8+CiAgPHJlY3QgeD0iMTQ1IiB5PSI4NSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI0IiByeD0iMyIgZmlsbD0iI2ZmZDkzZCIgdHJhbnNmb3JtPSJyb3RhdGUoOCAxNjAgOTcpIi8+CiAgPHJlY3QgeD0iMTQ4IiB5PSI4OCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMiIHJ4PSIxIiBmaWxsPSIjYzQ3ZDAwIiB0cmFuc2Zvcm09InJvdGF0ZSg4IDE2MCA4OSkiLz4KICA8cmVjdCB4PSIxNDgiIHk9IjkzIiB3aWR0aD0iMTgiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiNjNDdkMDAiIHRyYW5zZm9ybT0icm90YXRlKDggMTU3IDk0KSIvPgogIDwhLS0gUGVyc29uIDEgKGxlZnQpIC0tPgogIDxjaXJjbGUgY3g9IjU1IiBjeT0iOTAiIHI9IjE0IiBmaWxsPSIjZmJiZjI0Ii8+CiAgPHJlY3QgeD0iNDQiIHk9IjEwNCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjI2IiByeD0iNCIgZmlsbD0iIzI1NjNlYiIvPgogIDxyZWN0IHg9IjQ0IiB5PSIxMDQiIHdpZHRoPSIyMiIgaGVpZ2h0PSI4IiByeD0iMiIgZmlsbD0iIzFkNGVkOCIvPgogIDwhLS0gUGVyc29uIDIgKHJpZ2h0KSAtLT4KICA8Y2lyY2xlIGN4PSIyMjUiIGN5PSI5MCIgcj0iMTQiIGZpbGw9IiNmODcxNzEiLz4KICA8cmVjdCB4PSIyMTQiIHk9IjEwNCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjI2IiByeD0iNCIgZmlsbD0iI2RjMjYyNiIvPgogIDxyZWN0IHg9IjIxNCIgeT0iMTA0IiB3aWR0aD0iMjIiIGhlaWdodD0iOCIgcng9IjIiIGZpbGw9IiNiOTFjMWMiLz4KICA8IS0tIFBlcnNvbiAzICh0b3AgY2VudGVyKSAtLT4KICA8Y2lyY2xlIGN4PSIxNDAiIGN5PSI2NSIgcj0iMTQiIGZpbGw9IiMzNGQzOTkiLz4KICA8cmVjdCB4PSIxMjkiIHk9Ijc5IiB3aWR0aD0iMjIiIGhlaWdodD0iMjYiIHJ4PSI0IiBmaWxsPSIjMDU5NjY5Ii8+CiAgPCEtLSBTcGVlY2ggYnViYmxlIC0tPgogIDxyZWN0IHg9IjE1NSIgeT0iNDUiIHdpZHRoPSI3NSIgaGVpZ2h0PSIzMCIgcng9IjgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTUiLz4KICA8cG9seWdvbiBwb2ludHM9IjE2NSw3NSAxNzUsNzUgMTcwLDgzIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjk1Ii8+CiAgPHRleHQgeD0iMTkyIiB5PSI1OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjciIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMWE0YThhIj5XaGF0IGZlYXR1cmVzPC90ZXh0PgogIDx0ZXh0IHg9IjE5MiIgeT0iNjciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI3IiBmaWxsPSIjNDQ0Ij5kbyB5b3UgbmVlZD88L3RleHQ+CiAgPCEtLSBQZW5jaWwgaWNvbiAtLT4KICA8cmVjdCB4PSI3MiIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjE2IiByeD0iMSIgZmlsbD0iI2ZmZDkzZCIgdHJhbnNmb3JtPSJyb3RhdGUoMzAgNzQgMTA0KSIvPgogIDxwb2x5Z29uIHBvaW50cz0iNzIsMTEwIDc2LDExMCA3NCwxMTYiIGZpbGw9IiNmODcxNzEiIHRyYW5zZm9ybT0icm90YXRlKDMwIDc0IDEwNCkiLz4KICA8IS0tIExhYmVsIC0tPgogIDxyZWN0IHg9IjEwIiB5PSIxNTUiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTgiIHJ4PSI0IiBmaWxsPSIjZmZmZmZmMTUiLz4KICA8dGV4dCB4PSIxNDAiIHk9IjE2NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmZmZmIj7wn5OLIEJBIG1lZXRzIGNsaWVudCDigJQgY29sbGVjdHMgcmVxdWlyZW1lbnRzPC90ZXh0Pgo8L3N2Zz4=" alt="Requirements Phase Illustration"/>
+          <div class="phase-illus-label">📋 BA meets client</div>
+        </div>
+      </div>
 
-        <div class="phase-step">
+      <!-- Phase 2 -->
+      <div class="phase-step-with-img">
+        <div class="phase-step-left">
           <div class="step-num">2</div>
           <div class="step-content">
             <div class="step-title">Analysis Phase</div>
             <div class="step-desc">"The System Analyst checks if the requirements are technically and financially feasible. They select the technology and do resource and time planning. The output is the SRS document. <em style="color:#1a7a4a">Example: They decide to use React Native, 10 developers, 6 months timeline.</em>"</div>
           </div>
         </div>
+        <div class="phase-illus">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgMTgwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnMiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxYTdhNGE7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzE2YTM0YTtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMTgwIiBmaWxsPSJ1cmwoI2JnMikiIHJ4PSIxMiIvPgogIDwhLS0gQmlnIHNjcmVlbi93aGl0ZWJvYXJkIC0tPgogIDxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjE3MCIgaGVpZ2h0PSIxMTAiIHJ4PSI4IiBmaWxsPSIjMGY0YTJhIiBzdHJva2U9IiMzNGQzOTkiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gQmFyIGNoYXJ0IG9uIHNjcmVlbiAtLT4KICA8cmVjdCB4PSIzNSIgeT0iOTAiIHdpZHRoPSIxOCIgaGVpZ2h0PSIzMCIgcng9IjIiIGZpbGw9IiM0ZDk2ZmYiLz4KICA8cmVjdCB4PSI2MCIgeT0iNzAiIHdpZHRoPSIxOCIgaGVpZ2h0PSI1MCIgcng9IjIiIGZpbGw9IiNmZmQ5M2QiLz4KICA8cmVjdCB4PSI4NSIgeT0iNTUiIHdpZHRoPSIxOCIgaGVpZ2h0PSI2NSIgcng9IjIiIGZpbGw9IiNmODcxNzEiLz4KICA8cmVjdCB4PSIxMTAiIHk9Ijc1IiB3aWR0aD0iMTgiIGhlaWdodD0iNDUiIHJ4PSIyIiBmaWxsPSIjMzRkMzk5Ii8+CiAgPHJlY3QgeD0iMTM1IiB5PSI0NSIgd2lkdGg9IjE4IiBoZWlnaHQ9Ijc1IiByeD0iMiIgZmlsbD0iI2M3N2RmZiIvPgogIDwhLS0gQ2hhcnQgYmFzZWxpbmUgLS0+CiAgPGxpbmUgeDE9IjMwIiB5MT0iMTIyIiB4Mj0iMTYwIiB5Mj0iMTIyIiBzdHJva2U9IiMzNGQzOTkiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGxpbmUgeDE9IjMwIiB5MT0iMzAiIHgyPSIzMCIgeTI9IjEyMiIgc3Ryb2tlPSIjMzRkMzk5IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDwhLS0gVHJlbmQgbGluZSAtLT4KICA8cG9seWxpbmUgcG9pbnRzPSI0NCw5NSA2OSw3NSA5NCw2MCAxMTksNzggMTQ0LDUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmQ5M2QiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNCwyIi8+CiAgPCEtLSBTY3JlZW4gbGFiZWwgLS0+CiAgPHRleHQgeD0iMTA1IiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMzRkMzk5Ij5GRUFTSUJJTElUWSBTVFVEWTwvdGV4dD4KICA8IS0tIFBlcnNvbiBhbmFseXNpbmcgLS0+CiAgPGNpcmNsZSBjeD0iMjMwIiBjeT0iNzUiIHI9IjE2IiBmaWxsPSIjZmJiZjI0Ii8+CiAgPHJlY3QgeD0iMjE4IiB5PSI5MSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iNCIgZmlsbD0iIzE1ODAzZCIvPgogIDwhLS0gQ2xpcGJvYXJkIC0tPgogIDxyZWN0IHg9IjIwMCIgeT0iMTAwIiB3aWR0aD0iMjIiIGhlaWdodD0iMjgiIHJ4PSIzIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMjAwIiB5PSIxMDAiIHdpZHRoPSIyMiIgaGVpZ2h0PSI2IiByeD0iMiIgZmlsbD0iIzE1ODAzZCIvPgogIDxyZWN0IHg9IjIwMyIgeT0iMTEwIiB3aWR0aD0iMTYiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiM4ODgiLz4KICA8cmVjdCB4PSIyMDMiIHk9IjExNCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjODg4Ii8+CiAgPHJlY3QgeD0iMjAzIiB5PSIxMTgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIyIiByeD0iMSIgZmlsbD0iIzg4OCIvPgogIDwhLS0gTWFnbmlmeWluZyBnbGFzcyAtLT4KICA8Y2lyY2xlIGN4PSIyNDgiIGN5PSIxMTUiIHI9IjEwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmQ5M2QiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxsaW5lIHgxPSIyNTUiIHkxPSIxMjIiIHgyPSIyNjUiIHkyPSIxMzIiIHN0cm9rZT0iI2ZmZDkzZCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIFRhZ3M6IFRlY2gsIFRpbWUsIFJlc291cmNlIC0tPgogIDxyZWN0IHg9IjE5NSIgeT0iMjIiIHdpZHRoPSI2MCIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNmZmQ5M2QiLz4KICA8dGV4dCB4PSIyMjUiIHk9IjMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNyIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxYTFhMWEiPlRlY2hub2xvZ3kg4pyTPC90ZXh0PgogIDxyZWN0IHg9IjE5NSIgeT0iNDIiIHdpZHRoPSI2MCIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiM0ZDk2ZmYiLz4KICA8dGV4dCB4PSIyMjUiIHk9IjUzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNyIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPlRpbWVsaW5lIOKckzwvdGV4dD4KICA8cmVjdCB4PSIxOTUiIHk9IjYyIiB3aWR0aD0iNjAiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjZjg3MTcxIi8+CiAgPHRleHQgeD0iMjI1IiB5PSI3MyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjciIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5SZXNvdXJjZXMg4pyTPC90ZXh0PgogIDwhLS0gTGFiZWwgLS0+CiAgPHJlY3QgeD0iMTAiIHk9IjE1NSIgd2lkdGg9IjI2MCIgaGVpZ2h0PSIxOCIgcng9IjQiIGZpbGw9IiNmZmZmZmYxNSIvPgogIDx0ZXh0IHg9IjE0MCIgeT0iMTY3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmZmZmYiPvCflI0gRmVhc2liaWxpdHkgY2hlY2sg4oCUIElzIGl0IHBvc3NpYmxlPzwvdGV4dD4KPC9zdmc+" alt="Analysis Phase Illustration"/>
+          <div class="phase-illus-label">🔍 Feasibility study</div>
+        </div>
+      </div>
 
-        <div class="phase-step">
+      <!-- Phase 3 -->
+      <div class="phase-step-with-img">
+        <div class="phase-step-left">
           <div class="step-num">3</div>
           <div class="step-content">
             <div class="step-title">Design Phase</div>
             <div class="step-desc">"The Chief Architect creates a high-level design — breaking the project into modules. The Technical Lead does low-level design — breaking modules into sub-modules and writing pseudo code. Output is the Technical Design Document. <em style="color:#1a7a4a">Example: The app is split into Customer App, Restaurant App, and Delivery App.</em>"</div>
           </div>
         </div>
+        <div class="phase-illus">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgMTgwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnMyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3YzNhZWQ7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzZkMjhkOTtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMTgwIiBmaWxsPSJ1cmwoI2JnMykiIHJ4PSIxMiIvPgogIDwhLS0gQmx1ZXByaW50IHBhcGVyIC0tPgogIDxyZWN0IHg9IjE1IiB5PSIxNSIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNDAiIHJ4PSI2IiBmaWxsPSIjMWUxYjRiIiBzdHJva2U9IiNhNzhiZmEiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPCEtLSBHcmlkIGxpbmVzIC0tPgogIDxsaW5lIHgxPSIxNSIgeTE9IjM1IiB4Mj0iMTk1IiB5Mj0iMzUiIHN0cm9rZT0iI2E3OGJmYSIgc3Ryb2tlLXdpZHRoPSIwLjQiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSIxNSIgeTE9IjU1IiB4Mj0iMTk1IiB5Mj0iNTUiIHN0cm9rZT0iI2E3OGJmYSIgc3Ryb2tlLXdpZHRoPSIwLjQiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSIxNSIgeTE9Ijc1IiB4Mj0iMTk1IiB5Mj0iNzUiIHN0cm9rZT0iI2E3OGJmYSIgc3Ryb2tlLXdpZHRoPSIwLjQiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSIxNSIgeTE9Ijk1IiB4Mj0iMTk1IiB5Mj0iOTUiIHN0cm9rZT0iI2E3OGJmYSIgc3Ryb2tlLXdpZHRoPSIwLjQiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSIxNSIgeTE9IjExNSIgeDI9IjE5NSIgeTI9IjExNSIgc3Ryb2tlPSIjYTc4YmZhIiBzdHJva2Utd2lkdGg9IjAuNCIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjE1IiB5MT0iMTM1IiB4Mj0iMTk1IiB5Mj0iMTM1IiBzdHJva2U9IiNhNzhiZmEiIHN0cm9rZS13aWR0aD0iMC40IiBvcGFjaXR5PSIwLjQiLz4KICA8bGluZSB4MT0iNDUiIHkxPSIxNSIgeDI9IjQ1IiB5Mj0iMTU1IiBzdHJva2U9IiNhNzhiZmEiIHN0cm9rZS13aWR0aD0iMC40IiBvcGFjaXR5PSIwLjQiLz4KICA8bGluZSB4MT0iNzUiIHkxPSIxNSIgeDI9Ijc1IiB5Mj0iMTU1IiBzdHJva2U9IiNhNzhiZmEiIHN0cm9rZS13aWR0aD0iMC40IiBvcGFjaXR5PSIwLjQiLz4KICA8bGluZSB4MT0iMTA1IiB5MT0iMTUiIHgyPSIxMDUiIHkyPSIxNTUiIHN0cm9rZT0iI2E3OGJmYSIgc3Ryb2tlLXdpZHRoPSIwLjQiIG9wYWNpdHk9IjAuNCIvPgogIDxsaW5lIHgxPSIxMzUiIHkxPSIxNSIgeDI9IjEzNSIgeTI9IjE1NSIgc3Ryb2tlPSIjYTc4YmZhIiBzdHJva2Utd2lkdGg9IjAuNCIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjE2NSIgeTE9IjE1IiB4Mj0iMTY1IiB5Mj0iMTU1IiBzdHJva2U9IiNhNzhiZmEiIHN0cm9rZS13aWR0aD0iMC40IiBvcGFjaXR5PSIwLjQiLz4KICA8IS0tIEFyY2hpdGVjdHVyZSBib3hlcyAtLT4KICA8cmVjdCB4PSI3NSIgeT0iMjUiIHdpZHRoPSI1NSIgaGVpZ2h0PSIyMiIgcng9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZDkzZCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHRleHQgeD0iMTAyIiB5PSI0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjciIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZkOTNkIj5NQUlOIFNFUlZFUjwvdGV4dD4KICA8IS0tIEFycm93cyBkb3duIC0tPgogIDxsaW5lIHgxPSI4OCIgeTE9IjQ3IiB4Mj0iNTUiIHkyPSI2NSIgc3Ryb2tlPSIjYTc4YmZhIiBzdHJva2Utd2lkdGg9IjEuNSIgbWFya2VyLWVuZD0idXJsKCNhcnIpIi8+CiAgPGxpbmUgeDE9IjEwMiIgeTE9IjQ3IiB4Mj0iMTAyIiB5Mj0iNjUiIHN0cm9rZT0iI2E3OGJmYSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG1hcmtlci1lbmQ9InVybCgjYXJyKSIvPgogIDxsaW5lIHgxPSIxMTYiIHkxPSI0NyIgeDI9IjE1MCIgeTI9IjY1IiBzdHJva2U9IiNhNzhiZmEiIHN0cm9rZS13aWR0aD0iMS41IiBtYXJrZXItZW5kPSJ1cmwoI2FycikiLz4KICA8ZGVmcz4KICAgIDxtYXJrZXIgaWQ9ImFyciIgbWFya2VyV2lkdGg9IjYiIG1hcmtlckhlaWdodD0iNiIgcmVmWD0iMyIgcmVmWT0iMyIgb3JpZW50PSJhdXRvIj4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIwLDAgNiwzIDAsNiIgZmlsbD0iI2E3OGJmYSIvPgogICAgPC9tYXJrZXI+CiAgPC9kZWZzPgogIDwhLS0gMyBtb2R1bGVzIC0tPgogIDxyZWN0IHg9IjI4IiB5PSI2NSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGQ5NmZmIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDx0ZXh0IHg9IjUzIiB5PSI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjYuNSIgZmlsbD0iIzRkOTZmZiI+Q3VzdG9tZXIgQXBwPC90ZXh0PgogIDxyZWN0IHg9Ijc3IiB5PSI2NSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzRkMzk5IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDx0ZXh0IHg9IjEwMiIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI2LjUiIGZpbGw9IiMzNGQzOTkiPlJlc3RhdXJhbnQgQXBwPC90ZXh0PgogIDxyZWN0IHg9IjEyNyIgeT0iNjUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyMCIgcng9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y4NzE3MSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIxNTIiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNi41IiBmaWxsPSIjZjg3MTcxIj5EZWxpdmVyeSBBcHA8L3RleHQ+CiAgPCEtLSBTdWItbW9kdWxlcyAtLT4KICA8bGluZSB4MT0iNTMiIHkxPSI4NSIgeDI9IjM1IiB5Mj0iMTAwIiBzdHJva2U9IiM0ZDk2ZmYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC43Ii8+CiAgPGxpbmUgeDE9IjUzIiB5MT0iODUiIHgyPSI1MyIgeTI9IjEwMCIgc3Ryb2tlPSIjNGQ5NmZmIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNyIvPgogIDxsaW5lIHgxPSI1MyIgeTE9Ijg1IiB4Mj0iNzAiIHkyPSIxMDAiIHN0cm9rZT0iIzRkOTZmZiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjciLz4KICA8cmVjdCB4PSIyMCIgeT0iMTAwIiB3aWR0aD0iMzAiIGhlaWdodD0iMTIiIHJ4PSIyIiBmaWxsPSIjNGQ5NmZmIiBvcGFjaXR5PSIwLjMiLz4KICA8dGV4dCB4PSIzNSIgeT0iMTA5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNSIgZmlsbD0iIzRkOTZmZiI+TG9naW48L3RleHQ+CiAgPHJlY3QgeD0iMzgiIHk9IjEwMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjEyIiByeD0iMiIgZmlsbD0iIzRkOTZmZiIgb3BhY2l0eT0iMC4zIi8+CiAgPHRleHQgeD0iNTMiIHk9IjEwOSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjUiIGZpbGw9IiM0ZDk2ZmYiPlNlYXJjaDwvdGV4dD4KICA8cmVjdCB4PSI1NiIgeT0iMTAwIiB3aWR0aD0iMzAiIGhlaWdodD0iMTIiIHJ4PSIyIiBmaWxsPSIjNGQ5NmZmIiBvcGFjaXR5PSIwLjMiLz4KICA8dGV4dCB4PSI3MSIgeT0iMTA5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNSIgZmlsbD0iIzRkOTZmZiI+UGF5bWVudDwvdGV4dD4KICA8IS0tIFBTRVVETyBsYWJlbCAtLT4KICA8cmVjdCB4PSIyNSIgeT0iMTIwIiB3aWR0aD0iMTU1IiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0iI2ZmZmZmZjEwIiBzdHJva2U9IiNhNzhiZmEiIHN0cm9rZS13aWR0aD0iMSIvPgogIDx0ZXh0IHg9IjEwMiIgeT0iMTMxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iI2M0YjVmZCI+UFNFVURPIENPREU6IGlmIHVzZXIubG9naW4oKSDihpIgc2hvd19tZW51KCk8L3RleHQ+CiAgPHRleHQgeD0iMTAyIiB5PSIxNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI2IiBmaWxsPSIjYzRiNWZkIj5pZiBjYXJ0LnRvdGFsID4gMCDihpIgZW5hYmxlX2NoZWNrb3V0KCk8L3RleHQ+CiAgPCEtLSBBcmNoaXRlY3QgcGVyc29uIC0tPgogIDxjaXJjbGUgY3g9IjI0NSIgY3k9IjY1IiByPSIxNSIgZmlsbD0iI2ZiYmYyNCIvPgogIDxyZWN0IHg9IjIzMyIgeT0iODAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9IiM3YzNhZWQiLz4KICA8IS0tIFJ1bGVyIC0tPgogIDxyZWN0IHg9IjIxNSIgeT0iMTEwIiB3aWR0aD0iNTAiIGhlaWdodD0iOCIgcng9IjIiIGZpbGw9IiNmZmQ5M2QiIHRyYW5zZm9ybT0icm90YXRlKC0yMCAyNDAgMTE0KSIvPgogIDxsaW5lIHgxPSIyMjAiIHkxPSIxMTMiIHgyPSIyMjAiIHkyPSIxMTYiIHN0cm9rZT0iI2M0N2QwMCIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InJvdGF0ZSgtMjAgMjQwIDExNCkiLz4KICA8bGluZSB4MT0iMjI4IiB5MT0iMTEzIiB4Mj0iMjI4IiB5Mj0iMTE2IiBzdHJva2U9IiNjNDdkMDAiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwIDI0MCAxMTQpIi8+CiAgPGxpbmUgeDE9IjIzNiIgeTE9IjExMyIgeDI9IjIzNiIgeTI9IjExNiIgc3Ryb2tlPSIjYzQ3ZDAwIiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0icm90YXRlKC0yMCAyNDAgMTE0KSIvPgogIDxsaW5lIHgxPSIyNDQiIHkxPSIxMTMiIHgyPSIyNDQiIHkyPSIxMTYiIHN0cm9rZT0iI2M0N2QwMCIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InJvdGF0ZSgtMjAgMjQwIDExNCkiLz4KICA8IS0tIExhYmVsIC0tPgogIDxyZWN0IHg9IjEwIiB5PSIxNTUiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTgiIHJ4PSI0IiBmaWxsPSIjZmZmZmZmMTUiLz4KICA8dGV4dCB4PSIxNDAiIHk9IjE2NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmZmZmIj7inI/vuI8gQXJjaGl0ZWN0IGRyYXdzIGJsdWVwcmludCBvZiB0aGUgc3lzdGVtPC90ZXh0Pgo8L3N2Zz4=" alt="Design Phase Illustration"/>
+          <div class="phase-illus-label">✏️ System blueprint</div>
+        </div>
+      </div>
 
-        <div class="phase-step">
+      <!-- Phase 4 -->
+      <div class="phase-step-with-img">
+        <div class="phase-step-left">
           <div class="step-num">4</div>
           <div class="step-content">
             <div class="step-title">Coding Phase</div>
             <div class="step-desc">"Developers write the actual code based on the design document, following coding standards like proper indentation, naming conventions, and commenting. Output is the source code. <em style="color:#1a7a4a">Example: One team builds login, another builds payment, another builds GPS tracking.</em>"</div>
           </div>
         </div>
+        <div class="phase-illus">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgMTgwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnNCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwZjE3MmE7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzFlMjkzYjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMTgwIiBmaWxsPSJ1cmwoI2JnNCkiIHJ4PSIxMiIvPgogIDwhLS0gTW9uaXRvciAtLT4KICA8cmVjdCB4PSIzMCIgeT0iMjAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTIwIiByeD0iOCIgZmlsbD0iIzBkMTExNyIgc3Ryb2tlPSIjNGQ5NmZmIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIzOCIgeT0iMjgiIHdpZHRoPSIxNjQiIGhlaWdodD0iMTA0IiByeD0iNCIgZmlsbD0iIzE2MWIyMiIvPgogIDwhLS0gQ29kZSBsaW5lcyB3aXRoIHN5bnRheCBoaWdobGlnaHRpbmcgLS0+CiAgPHRleHQgeD0iNDYiIHk9IjQ0IiBmb250LWZhbWlseT0iSmV0QnJhaW5zIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI4IiBmaWxsPSIjZmY3YjcyIj5mdW5jdGlvbjwvdGV4dD4KICA8dGV4dCB4PSI5NSIgeT0iNDQiIGZvbnQtZmFtaWx5PSJKZXRCcmFpbnMgTW9ubywgbW9ub3NwYWNlIiBmb250LXNpemU9IjgiIGZpbGw9IiNkMmE4ZmYiPiBidWlsZEFwcDwvdGV4dD4KICA8dGV4dCB4PSIxNTUiIHk9IjQ0IiBmb250LWZhbWlseT0iSmV0QnJhaW5zIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI4IiBmaWxsPSIjZTZlZGYzIj4oKSB7ezwvdGV4dD4KICA8dGV4dCB4PSI1NCIgeT0iNTYiIGZvbnQtZmFtaWx5PSJKZXRCcmFpbnMgTW9ubywgbW9ub3NwYWNlIiBmb250LXNpemU9IjgiIGZpbGw9IiM3OWMwZmYiPiAgY29uc3Q8L3RleHQ+CiAgPHRleHQgeD0iOTAiIHk9IjU2IiBmb250LWZhbWlseT0iSmV0QnJhaW5zIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI4IiBmaWxsPSIjZTZlZGYzIj4gdXNlciA8L3RleHQ+CiAgPHRleHQgeD0iMTE1IiB5PSI1NiIgZm9udC1mYW1pbHk9IkpldEJyYWlucyBNb25vLCBtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iI2ZmN2I3MiI+PTwvdGV4dD4KICA8dGV4dCB4PSIxMjIiIHk9IjU2IiBmb250LWZhbWlseT0iSmV0QnJhaW5zIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI4IiBmaWxsPSIjYTVkNmZmIj4gbG9naW4oKTwvdGV4dD4KICA8dGV4dCB4PSI1NCIgeT0iNjgiIGZvbnQtZmFtaWx5PSJKZXRCcmFpbnMgTW9ubywgbW9ub3NwYWNlIiBmb250LXNpemU9IjgiIGZpbGw9IiM3OWMwZmYiPiAgaWY8L3RleHQ+CiAgPHRleHQgeD0iNzIiIHk9IjY4IiBmb250LWZhbWlseT0iSmV0QnJhaW5zIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI4IiBmaWxsPSIjZTZlZGYzIj4gKHVzZXIuPC90ZXh0PgogIDx0ZXh0IHg9IjEwNiIgeT0iNjgiIGZvbnQtZmFtaWx5PSJKZXRCcmFpbnMgTW9ubywgbW9ub3NwYWNlIiBmb250LXNpemU9IjgiIGZpbGw9IiNkMmE4ZmYiPmF1dGg8L3RleHQ+CiAgPHRleHQgeD0iMTI4IiB5PSI2OCIgZm9udC1mYW1pbHk9IkpldEJyYWlucyBNb25vLCBtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iI2U2ZWRmMyI+KSB7ezwvdGV4dD4KICA8dGV4dCB4PSI2MiIgeT0iODAiIGZvbnQtZmFtaWx5PSJKZXRCcmFpbnMgTW9ubywgbW9ub3NwYWNlIiBmb250LXNpemU9IjgiIGZpbGw9IiNhNWQ2ZmYiPiAgICBzaG93TWVudSgpPC90ZXh0PgogIDx0ZXh0IHg9IjU0IiB5PSI5MiIgZm9udC1mYW1pbHk9IkpldEJyYWlucyBNb25vLCBtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iI2U2ZWRmMyI+ICB9fTwvdGV4dD4KICA8dGV4dCB4PSI1NCIgeT0iMTA0IiBmb250LWZhbWlseT0iSmV0QnJhaW5zIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI4IiBmaWxsPSIjNzljMGZmIj4gIHJldHVybjwvdGV4dD4KICA8dGV4dCB4PSI5OSIgeT0iMTA0IiBmb250LWZhbWlseT0iSmV0QnJhaW5zIE1vbm8sIG1vbm9zcGFjZSIgZm9udC1zaXplPSI4IiBmaWxsPSIjN2VlNzg3Ij4gc3VjY2VzczwvdGV4dD4KICA8IS0tIEN1cnNvciBibGluayAtLT4KICA8cmVjdCB4PSIxNTUiIHk9Ijk2IiB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgcng9IjEiIGZpbGw9IiM0ZDk2ZmYiIG9wYWNpdHk9IjAuOSIvPgogIDwhLS0gTGluZSBudW1iZXJzIC0tPgogIDx0ZXh0IHg9IjM4IiB5PSI0NCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI3IiBmaWxsPSIjNDg0ZjU4Ij4xPC90ZXh0PgogIDx0ZXh0IHg9IjM4IiB5PSI1NiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI3IiBmaWxsPSIjNDg0ZjU4Ij4yPC90ZXh0PgogIDx0ZXh0IHg9IjM4IiB5PSI2OCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI3IiBmaWxsPSIjNDg0ZjU4Ij4zPC90ZXh0PgogIDx0ZXh0IHg9IjM4IiB5PSI4MCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI3IiBmaWxsPSIjNDg0ZjU4Ij40PC90ZXh0PgogIDx0ZXh0IHg9IjM4IiB5PSI5MiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI3IiBmaWxsPSIjNDg0ZjU4Ij41PC90ZXh0PgogIDx0ZXh0IHg9IjM4IiB5PSIxMDQiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzQ4NGY1OCI+NjwvdGV4dD4KICA8IS0tIFRlcm1pbmFsIG91dHB1dCBhdCBib3R0b20gLS0+CiAgPHJlY3QgeD0iMzgiIHk9IjExMiIgd2lkdGg9IjE2NCIgaGVpZ2h0PSIxNiIgcng9IjIiIGZpbGw9IiMwZDExMTciIHN0cm9rZT0iIzIzODYzNiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iNDQiIHk9IjEyMyIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI3IiBmaWxsPSIjM2ZiOTUwIj7inJMgQnVpbGQgc3VjY2Vzc2Z1bCDigJQgMCBlcnJvcnM8L3RleHQ+CiAgPCEtLSBNb25pdG9yIHN0YW5kIC0tPgogIDxyZWN0IHg9IjExMCIgeT0iMTQwIiB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIHJ4PSIyIiBmaWxsPSIjMzM0MTU1Ii8+CiAgPHJlY3QgeD0iOTUiIHk9IjE1MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSIjMzM0MTU1Ii8+CiAgPCEtLSBEZXZlbG9wZXIgKHJpZ2h0IHNpZGUpIC0tPgogIDxjaXJjbGUgY3g9IjI0NSIgY3k9IjcwIiByPSIxNiIgZmlsbD0iI2ZiOTIzYyIvPgogIDwhLS0gSGFpciAtLT4KICA8ZWxsaXBzZSBjeD0iMjQ1IiBjeT0iNTciIHJ4PSIxNiIgcnk9IjgiIGZpbGw9IiM5MjQwMGUiLz4KICA8cmVjdCB4PSIyMzMiIHk9Ijg2IiB3aWR0aD0iMjQiIGhlaWdodD0iMzIiIHJ4PSI0IiBmaWxsPSIjMjU2M2ViIi8+CiAgPCEtLSBBcm1zIG9uIGtleWJvYXJkIC0tPgogIDxyZWN0IHg9IjIxOCIgeT0iMTE1IiB3aWR0aD0iNTAiIGhlaWdodD0iMTAiIHJ4PSIzIiBmaWxsPSIjMWUyOTNiIiBzdHJva2U9IiM0ZDk2ZmYiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxyZWN0IHg9IjIyMiIgeT0iMTE3IiB3aWR0aD0iOCIgaGVpZ2h0PSI1IiByeD0iMSIgZmlsbD0iIzMzNDE1NSIvPgogIDxyZWN0IHg9IjIzMiIgeT0iMTE3IiB3aWR0aD0iOCIgaGVpZ2h0PSI1IiByeD0iMSIgZmlsbD0iIzMzNDE1NSIvPgogIDxyZWN0IHg9IjI0MiIgeT0iMTE3IiB3aWR0aD0iOCIgaGVpZ2h0PSI1IiByeD0iMSIgZmlsbD0iIzMzNDE1NSIvPgogIDxyZWN0IHg9IjI1MiIgeT0iMTE3IiB3aWR0aD0iOCIgaGVpZ2h0PSI1IiByeD0iMSIgZmlsbD0iIzMzNDE1NSIvPgogIDwhLS0gQ29mZmVlIG11ZyAtLT4KICA8cmVjdCB4PSIyMjgiIHk9IjEwMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0iI2ZmZDkzZCIvPgogIDxwYXRoIGQ9Ik0yNDIgMTA0IFEyNDggMTA0IDI0OCAxMDggUTI0OCAxMTIgMjQyIDExMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZkOTNkIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIyMjkiIHk9IjEwMSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjQiIHJ4PSIxIiBmaWxsPSIjYzQ3ZDAwIiBvcGFjaXR5PSIwLjQiLz4KICA8IS0tIExhYmVsIC0tPgogIDxyZWN0IHg9IjEwIiB5PSIxNTgiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTgiIHJ4PSI0IiBmaWxsPSIjZmZmZmZmMTUiLz4KICA8dGV4dCB4PSIxNDAiIHk9IjE3MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmZmZmIj7wn5K7IERldmVsb3BlcnMgd3JpdGUgYWN0dWFsIGNvZGU8L3RleHQ+Cjwvc3ZnPg==" alt="Coding Phase Illustration"/>
+          <div class="phase-illus-label">💻 Writing real code</div>
+        </div>
+      </div>
 
-        <div class="phase-step">
+      <!-- Phase 5 -->
+      <div class="phase-step-with-img">
+        <div class="phase-step-left">
           <div class="step-num">5</div>
           <div class="step-content">
             <div class="step-title">Testing Phase</div>
             <div class="step-desc">"Test engineers verify the software against requirements. They write test cases, execute them, log defects, and re-test after fixes. This cycle continues until the product is defect-free. Output is a quality product. <em style="color:#1a7a4a">Example: Testers check — what happens if payment fails midway? Does GPS update live?</em>"</div>
           </div>
         </div>
+        <div class="phase-illus">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgMTgwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnNSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNjMDM5MmIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOWIyMzM1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGNsaXBQYXRoIGlkPSJtYWdDbGlwIj4KICAgICAgPGNpcmNsZSBjeD0iMTk1IiBjeT0iODIiIHI9IjM4Ii8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMTgwIiBmaWxsPSJ1cmwoI2JnNSkiIHJ4PSIxMiIvPgoKICA8IS0tIFBob25lIGZyYW1lIC0tPgogIDxyZWN0IHg9IjE4IiB5PSIxNSIgd2lkdGg9IjExNSIgaGVpZ2h0PSIxNTAiIHJ4PSIxMiIgZmlsbD0iIzFhMGEwYSIgc3Ryb2tlPSIjZjg3MTcxIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjUiIHdpZHRoPSIxMDMiIGhlaWdodD0iMTMwIiByeD0iNiIgZmlsbD0iIzJkMTUxNSIvPgogIDwhLS0gUGhvbmUgYnV0dG9uIC0tPgogIDxyZWN0IHg9IjYwIiB5PSIxNiIgd2lkdGg9IjMwIiBoZWlnaHQ9IjUiIHJ4PSIzIiBmaWxsPSIjMzMzIi8+CgogIDwhLS0gQXBwIHRvcCBiYXIgLS0+CiAgPHJlY3QgeD0iMjQiIHk9IjI1IiB3aWR0aD0iMTAzIiBoZWlnaHQ9IjE4IiByeD0iMCIgZmlsbD0iIzk5MWIxYiIvPgogIDx0ZXh0IHg9Ijc1IiB5PSIzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjciIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmZmZmIj5RdWlja0JpdGUgQXBwPC90ZXh0PgoKICA8IS0tIE1lbnUgaXRlbSAxIE9LIC0tPgogIDxyZWN0IHg9IjI4IiB5PSI0OCIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjE2IiByeD0iMyIgZmlsbD0iIzQ1MGEwYSIvPgogIDxyZWN0IHg9IjMxIiB5PSI1MSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgcng9IjIiIGZpbGw9IiNmODcxNzEiLz4KICA8dGV4dCB4PSI0NCIgeT0iNTkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI3IiBmaWxsPSIjZmNhNWE1Ij5QaXp6YSBQYWxhY2U8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTE1IiBjeT0iNTYiIHI9IjUiIGZpbGw9IiMyMmM1NWUiLz4KICA8dGV4dCB4PSIxMTUiIHk9IjU5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNyIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPlY8L3RleHQ+CgogIDwhLS0gTWVudSBpdGVtIDIgT0sgLS0+CiAgPHJlY3QgeD0iMjgiIHk9IjY4IiB3aWR0aD0iOTUiIGhlaWdodD0iMTYiIHJ4PSIzIiBmaWxsPSIjNDUwYTBhIi8+CiAgPHJlY3QgeD0iMzEiIHk9IjcxIiB3aWR0aD0iOCIgaGVpZ2h0PSI4IiByeD0iMiIgZmlsbD0iI2ZiOTIzYyIvPgogIDx0ZXh0IHg9IjQ0IiB5PSI3OSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjciIGZpbGw9IiNmY2E1YTUiPkJ1cmdlciBCYXJuPC90ZXh0PgogIDxjaXJjbGUgY3g9IjExNSIgY3k9Ijc2IiByPSI1IiBmaWxsPSIjMjJjNTVlIi8+CiAgPHRleHQgeD0iMTE1IiB5PSI3OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjciIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5WPC90ZXh0PgoKICA8IS0tIE1lbnUgaXRlbSAzIEJVRyAtIGhpZ2hsaWdodGVkIC0tPgogIDxyZWN0IHg9IjI4IiB5PSI4OCIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjE2IiByeD0iMyIgZmlsbD0iIzdmMWQxZCIgc3Ryb2tlPSIjZWY0NDQ0IiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIzMSIgeT0iOTEiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSIyIiBmaWxsPSIjZmZkOTNkIi8+CiAgPHRleHQgeD0iNDQiIHk9Ijk5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iI2ZjYTVhNSI+UGF5bWVudDwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMTUiIGN5PSI5NiIgcj0iNiIgZmlsbD0iI2VmNDQ0NCIvPgogIDx0ZXh0IHg9IjExNSIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPlg8L3RleHQ+CgogIDwhLS0gRXJyb3IgcG9wdXAgLS0+CiAgPHJlY3QgeD0iMjgiIHk9IjExMCIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjM4IiByeD0iNiIgZmlsbD0iI2VmNDQ0NCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxyZWN0IHg9IjI4IiB5PSIxMTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNiOTFjMWMiLz4KICA8dGV4dCB4PSI3NSIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNyIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmZmZmYiPkVSUk9SIEZPVU5EITwvdGV4dD4KICA8dGV4dCB4PSI3NSIgeT0iMTMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iI2ZmZmZmZiI+UGF5bWVudCBnYXRld2F5PC90ZXh0PgogIDx0ZXh0IHg9Ijc1IiB5PSIxNDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI2IiBmaWxsPSIjZmZmZmZmIj5jcmFzaGVkIG9uIHN1Ym1pdDwvdGV4dD4KCiAgPCEtLSBNYWduaWZ5aW5nIGdsYXNzIGNpcmNsZSAtLT4KICA8Y2lyY2xlIGN4PSIxOTUiIGN5PSI4MiIgcj0iNDIiIGZpbGw9IiMzYjBhMGEiIHN0cm9rZT0iI2ZmZDkzZCIgc3Ryb2tlLXdpZHRoPSI1Ii8+CgogIDwhLS0gQnVnIGJvZHkgKGluc2lkZSBtYWduaWZpZXIpIC0tPgogIDxjaXJjbGUgY3g9IjE5NSIgY3k9IjgwIiByPSIyMCIgZmlsbD0iI2VmNDQ0NCIvPgoKICA8IS0tIEJ1ZyBmYWNlIC0tPgogIDxjaXJjbGUgY3g9IjE4OCIgY3k9Ijc1IiByPSI1IiBmaWxsPSIjZmZmZmZmIi8+CiAgPGNpcmNsZSBjeD0iMjAyIiBjeT0iNzUiIHI9IjUiIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSIxODkiIGN5PSI3NiIgcj0iMi41IiBmaWxsPSIjMDAwMDAwIi8+CiAgPGNpcmNsZSBjeD0iMjAzIiBjeT0iNzYiIHI9IjIuNSIgZmlsbD0iIzAwMDAwMCIvPgogIDwhLS0gUHVwaWxzIHNoaW5lIC0tPgogIDxjaXJjbGUgY3g9IjE5MCIgY3k9Ijc1IiByPSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPGNpcmNsZSBjeD0iMjA0IiBjeT0iNzUiIHI9IjEiIGZpbGw9IiNmZmZmZmYiLz4KCiAgPCEtLSBCdWcgbW91dGggLSBmcm93biAtLT4KICA8cGF0aCBkPSJNMTg4IDg2IFExOTUgODIgMjAyIDg2IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CgogIDwhLS0gQnVnIGFudGVubmFlIC0tPgogIDxsaW5lIHgxPSIxODkiIHkxPSI2MiIgeDI9IjE4MSIgeTI9IjUwIiBzdHJva2U9IiNlZjQ0NDQiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMjAxIiB5MT0iNjIiIHgyPSIyMDkiIHkyPSI1MCIgc3Ryb2tlPSIjZWY0NDQ0IiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMTgxIiBjeT0iNDkiIHI9IjQiIGZpbGw9IiNmZmQ5M2QiLz4KICA8Y2lyY2xlIGN4PSIyMDkiIGN5PSI0OSIgcj0iNCIgZmlsbD0iI2ZmZDkzZCIvPgoKICA8IS0tIEJ1ZyBsZWdzIC0tPgogIDxsaW5lIHgxPSIxNzciIHkxPSI3OCIgeDI9IjE2MiIgeTI9IjcyIiBzdHJva2U9IiNlZjQ0NDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjE3NyIgeTE9IjgzIiB4Mj0iMTYxIiB5Mj0iODMiIHN0cm9rZT0iI2VmNDQ0NCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMTc3IiB5MT0iODgiIHgyPSIxNjIiIHkyPSI5NCIgc3Ryb2tlPSIjZWY0NDQ0IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSIyMTMiIHkxPSI3OCIgeDI9IjIyOCIgeTI9IjcyIiBzdHJva2U9IiNlZjQ0NDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjIxMyIgeTE9IjgzIiB4Mj0iMjI5IiB5Mj0iODMiIHN0cm9rZT0iI2VmNDQ0NCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMjEzIiB5MT0iODgiIHgyPSIyMjgiIHkyPSI5NCIgc3Ryb2tlPSIjZWY0NDQ0IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoKICA8IS0tIE1hZ25pZnlpbmcgZ2xhc3MgaGFuZGxlIC0tPgogIDxsaW5lIHgxPSIyMjgiIHkxPSIxMTQiIHgyPSIyNjIiIHkyPSIxNTAiIHN0cm9rZT0iI2ZmZDkzZCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMjI1IiB5MT0iMTE3IiB4Mj0iMjU5IiB5Mj0iMTUzIiBzdHJva2U9IiNjNDdkMDAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CgogIDwhLS0gRGVmZWN0IHJlcG9ydCBib3ggLS0+CiAgPHJlY3QgeD0iMTQ4IiB5PSIxNDUiIHdpZHRoPSIxMTgiIGhlaWdodD0iMjgiIHJ4PSI2IiBmaWxsPSIjMGYwNTA1IiBzdHJva2U9IiNmZmQ5M2QiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHRleHQgeD0iMjA3IiB5PSIxNTciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI3IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZDkzZCI+REVGRUNUIFJFUE9SVDwvdGV4dD4KICA8dGV4dCB4PSIyMDciIHk9IjE2NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjYiIGZpbGw9IiNmY2E1YTUiPkJ1ZyAjNDIgLSBQYXltZW50IGNyYXNoPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBsYWJlbCAtLT4KICA8cmVjdCB4PSIxMCIgeT0iMTU4IiB3aWR0aD0iMTMzIiBoZWlnaHQ9IjE2IiByeD0iNCIgZmlsbD0iIzAwMDAwMDQwIi8+CiAgPHRleHQgeD0iNzYiIHk9IjE2OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmZmZmIj5RQSBmaW5kcyBhbmQgcmVwb3J0cyBidWdzPC90ZXh0Pgo8L3N2Zz4=" alt="Testing Phase Illustration"/>
+          <div class="phase-illus-label">🧪 Hunt & kill bugs</div>
+        </div>
+      </div>
 
-        <div class="phase-step">
+      <!-- Phase 6 -->
+      <div class="phase-step-with-img">
+        <div class="phase-step-left">
           <div class="step-num">6</div>
           <div class="step-content">
-            <div class="step-title">Delivery & Maintenance Phase</div>
+            <div class="step-title">Delivery &amp; Maintenance Phase</div>
             <div class="step-desc">"The deployment engineer installs the software in the client's environment. After delivery, any issues are fixed by the maintenance team. <em style="color:#1a7a4a">Example: The app is published on Play Store. Later, a bug is found and fixed in the next update.</em>"</div>
           </div>
         </div>
-
+        <div class="phase-illus">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgMTgwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnNiIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwYzRhNmU7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAzNjlhMTtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3ciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmQ5M2Q7c3RvcC1vcGFjaXR5OjAuNCIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZkOTNkO3N0b3Atb3BhY2l0eTowIiAvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxODAiIGZpbGw9InVybCgjYmc2KSIgcng9IjEyIi8+CiAgPCEtLSBTdGFycyAtLT4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjI1IiByPSIxLjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuOCIvPgogIDxjaXJjbGUgY3g9IjU1IiBjeT0iMTUiIHI9IjEiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuNiIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjMwIiByPSIxLjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuNyIvPgogIDxjaXJjbGUgY3g9IjI0MCIgY3k9IjIwIiByPSIxIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjUiLz4KICA8Y2lyY2xlIGN4PSIyNjUiIGN5PSI0MCIgcj0iMS41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjgiLz4KICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjYwIiByPSIxIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjQiLz4KICA8Y2lyY2xlIGN4PSIyNTAiIGN5PSI2NSIgcj0iMS41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjciLz4KICA8IS0tIFJvY2tldCAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjAsIDIwKSByb3RhdGUoMCkiPgogICAgPCEtLSBSb2NrZXQgYm9keSAtLT4KICAgIDxlbGxpcHNlIGN4PSIyMCIgY3k9IjU1IiByeD0iMTYiIHJ5PSI0MiIgZmlsbD0iI2UyZThmMCIvPgogICAgPCEtLSBSb2NrZXQgbm9zZSAtLT4KICAgIDxlbGxpcHNlIGN4PSIyMCIgY3k9IjE4IiByeD0iMTYiIHJ5PSIyMiIgZmlsbD0iIzRkOTZmZiIvPgogICAgPGVsbGlwc2UgY3g9IjIwIiBjeT0iMTQiIHJ4PSIxMCIgcnk9IjE0IiBmaWxsPSIjMjU2M2ViIi8+CiAgICA8IS0tIFdpbmRvdyAtLT4KICAgIDxjaXJjbGUgY3g9IjIwIiBjeT0iNTAiIHI9IjkiIGZpbGw9IiMwZWE1ZTkiIHN0cm9rZT0iIzdkZDNmYyIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjUwIiByPSI1IiBmaWxsPSIjYmFlNmZkIi8+CiAgICA8IS0tIEZpbnMgLS0+CiAgICA8cG9seWdvbiBwb2ludHM9IjQsODAgMCwxMDggMTIsOTAiIGZpbGw9IiNlZjQ0NDQiLz4KICAgIDxwb2x5Z29uIHBvaW50cz0iMzYsODAgNDAsMTA4IDI4LDkwIiBmaWxsPSIjZWY0NDQ0Ii8+CiAgICA8IS0tIEV4aGF1c3QgZmxhbWUgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMjAiIGN5PSIxMDAiIHJ4PSIxMiIgcnk9IjE4IiBmaWxsPSIjZmZkOTNkIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSIyMCIgY3k9IjEwOCIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI2ZiOTIzYyIgb3BhY2l0eT0iMC45Ii8+CiAgICA8ZWxsaXBzZSBjeD0iMjAiIGN5PSIxMTUiIHJ4PSI1IiByeT0iMTAiIGZpbGw9IiNlZjQ0NDQiIG9wYWNpdHk9IjAuOCIvPgogICAgPCEtLSBHbG93IC0tPgogICAgPGVsbGlwc2UgY3g9IjIwIiBjeT0iMTA4IiByeD0iMjQiIHJ5PSIyNCIgZmlsbD0idXJsKCNnbG93KSIvPgogIDwvZz4KICA8IS0tIFBsYXkgU3RvcmUgYmFkZ2UgKGxlZnQpIC0tPgogIDxyZWN0IHg9IjE1IiB5PSIxMTAiIHdpZHRoPSI4NSIgaGVpZ2h0PSI1MCIgcng9IjgiIGZpbGw9IiMwZjE3MmEiIHN0cm9rZT0iIzM0ZDM5OSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSI1NyIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMzNGQzOTkiPuKWtiBQbGF5IFN0b3JlPC90ZXh0PgogIDx0ZXh0IHg9IjU3IiB5PSIxNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI2IiBmaWxsPSIjOTRhM2I4Ij5BcHAgaXMgTElWRSE8L3RleHQ+CiAgPHRleHQgeD0iNTciIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjZmZkOTNkIj7imIXimIXimIXimIXimIU8L3RleHQ+CiAgPCEtLSBBcHAgU3RvcmUgYmFkZ2UgKHJpZ2h0KSAtLT4KICA8cmVjdCB4PSIxODAiIHk9IjExMCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjUwIiByeD0iOCIgZmlsbD0iIzBmMTcyYSIgc3Ryb2tlPSIjNGQ5NmZmIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDx0ZXh0IHg9IjIyMiIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiM0ZDk2ZmYiPiBBcHAgU3RvcmU8L3RleHQ+CiAgPHRleHQgeD0iMjIyIiB5PSIxNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI2IiBmaWxsPSIjOTRhM2I4Ij5Vc2VycyBkb3dubG9hZGluZyE8L3RleHQ+CiAgPHRleHQgeD0iMjIyIiB5PSIxNTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZDkzZCI+4piF4piF4piF4piF4piFPC90ZXh0PgogIDwhLS0gQ2VsZWJyYXRpb24gY29uZmV0dGkgLS0+CiAgPHJlY3QgeD0iMzAiIHk9Ijg1IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiByeD0iMSIgZmlsbD0iI2ZmZDkzZCIgdHJhbnNmb3JtPSJyb3RhdGUoMzAgMzMgODgpIi8+CiAgPHJlY3QgeD0iNTUiIHk9IjcwIiB3aWR0aD0iNSIgaGVpZ2h0PSI1IiByeD0iMSIgZmlsbD0iI2Y4NzE3MSIgdHJhbnNmb3JtPSJyb3RhdGUoMTUgNTcgNzIpIi8+CiAgPHJlY3QgeD0iODAiIHk9IjgwIiB3aWR0aD0iNSIgaGVpZ2h0PSI3IiByeD0iMSIgZmlsbD0iIzM0ZDM5OSIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwIDgyIDgzKSIvPgogIDxyZWN0IHg9IjIwMCIgeT0iNzUiIHdpZHRoPSI2IiBoZWlnaHQ9IjYiIHJ4PSIxIiBmaWxsPSIjYzc3ZGZmIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAyMDMgNzgpIi8+CiAgPHJlY3QgeD0iMjMwIiB5PSI4NSIgd2lkdGg9IjUiIGhlaWdodD0iNSIgcng9IjEiIGZpbGw9IiNmZmQ5M2QiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAyMzIgODcpIi8+CiAgPHJlY3QgeD0iMjUwIiB5PSI3MCIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiIGZpbGw9IiNmODcxNzEiIHRyYW5zZm9ybT0icm90YXRlKDIwIDI1MyA3MykiLz4KICA8IS0tIExJVkUgYmFkZ2UgLS0+CiAgPHJlY3QgeD0iMTEwIiB5PSIyMiIgd2lkdGg9IjQyIiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iI2VmNDQ0NCIvPgogIDxjaXJjbGUgY3g9IjExOCIgY3k9IjMxIiByPSI0IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjkiLz4KICA8dGV4dCB4PSIxMzIiIHk9IjM1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPkxJVkU8L3RleHQ+CiAgPCEtLSBMYWJlbCAtLT4KICA8cmVjdCB4PSIxMCIgeT0iMTU4IiB3aWR0aD0iMjYwIiBoZWlnaHQ9IjE4IiByeD0iNCIgZmlsbD0iI2ZmZmZmZjE1Ii8+CiAgPHRleHQgeD0iMTQwIiB5PSIxNzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI5IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZmZmZiI+8J+agCBBcHAgZ29lcyBMSVZFIG9uIFBsYXkgU3RvcmUgJmFtcDsgQXBwIFN0b3JlITwvdGV4dD4KPC9zdmc+" alt="Delivery Phase Illustration"/>
+          <div class="phase-illus-label">🚀 App goes LIVE!</div>
+        </div>
       </div>
 
       <div class="tip-box blue" style="margin-top: 4px;">
@@ -627,13 +376,11 @@
           After explaining all 6 phases, end with: <em>"This structured approach ensures the software is built correctly, on time, and within budget."</em> — This closing line makes you sound professional.
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- ── Q3 ── -->
+  <!-- Q3 -->
   <div class="section-label"><span>Question 3 — Role-Based</span></div>
-
   <div class="interview-block">
     <div class="question-bar">
       <span class="q-icon">Q</span>
@@ -656,9 +403,8 @@
     </div>
   </div>
 
-  <!-- ── Q4 ── -->
+  <!-- Q4 -->
   <div class="section-label"><span>Question 4 — Documents</span></div>
-
   <div class="interview-block">
     <div class="question-bar">
       <span class="q-icon">Q</span>
@@ -681,9 +427,8 @@
     </div>
   </div>
 
-  <!-- ── DO / DON'T ── -->
-  <div class="section-label"><span>Do's & Don'ts in Interview</span></div>
-
+  <!-- DO / DON'T -->
+  <div class="section-label"><span>Do's &amp; Don'ts in Interview</span></div>
   <div class="interview-block">
     <div class="answer-body">
       <div class="do-dont">
@@ -709,9 +454,8 @@
     </div>
   </div>
 
-  <!-- ── FOLLOW UP Q's ── -->
+  <!-- FOLLOW-UP -->
   <div class="section-label"><span>Common Follow-Up Questions</span></div>
-
   <div class="followup-grid">
     <div class="followup-card">
       <div class="followup-q">❓ What is a prototype in SDLC?</div>
@@ -739,12 +483,10 @@
     </div>
   </div>
 
-  <!-- ── CHEAT SHEET ── -->
+  <!-- CHEAT SHEET -->
   <div class="section-label"><span>Quick Revision Cheat Sheet</span></div>
-
   <div class="cheat-sheet">
     <div class="cheat-title">📌 30-Second Memory Card — Read Before Interview</div>
-
     <div class="cheat-row">
       <div class="cheat-num">1</div>
       <div class="cheat-phase">Requirements</div>
@@ -768,11 +510,11 @@
     <div class="cheat-row">
       <div class="cheat-num">5</div>
       <div class="cheat-phase">Testing</div>
-      <div class="cheat-line">QA finds & fixes bugs → <em>Output: Defect-free Product</em></div>
+      <div class="cheat-line">QA finds &amp; fixes bugs → <em>Output: Defect-free Product</em></div>
     </div>
     <div class="cheat-row">
       <div class="cheat-num">6</div>
-      <div class="cheat-phase">Delivery & Maintenance</div>
+      <div class="cheat-phase">Delivery &amp; Maintenance</div>
       <div class="cheat-line">Deploy to client + fix issues → <em>Output: Live Software</em></div>
     </div>
   </div>
@@ -780,40 +522,31 @@
   <div class="footer-tip">
     <p>🎤 <strong>Golden Rule for Interviews:</strong> Always answer as a <strong>story</strong> — "First this happens, then this, then this..." It shows you truly understand SDLC, not just memorized it. Use the <strong>food delivery app example</strong> — every interviewer can relate to it!</p>
   </div>
-  <div class="footer-tip">
-    <strong>Short Version </strong>-> SDLC is a step-by-step process used in software development that includes Requirement, Analysis, Design, Coding, Testing, and Maintenance phases to deliver a high-quality product.
+  <div class="footer-tip" style="margin-top:12px;">
+    <strong>Short Version</strong> → SDLC is a step-by-step process used in software development that includes Requirement, Analysis, Design, Coding, Testing, and Maintenance phases to deliver a high-quality product.
   </div>
 
   <div style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
     <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Follow for more content</p>
-    <a href="#" target="_blank" rel="noopener noreferrer" style="display: inline-block; transition: all 0.2s ease; text-decoration: none; color: var(--dark); font-weight: 700; padding: 10px 24px; border: 2px solid var(--dark); border-radius: 8px; margin: 8px 0;" onmouseover="this.style.transform='scale(1.05)'; this.style.backgroundColor='var(--dark)'; this.style.color='#fff';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='transparent'; this.style.color='var(--dark)';">
-      My Portfolio
-    </a>
+    <a href="https://jayapraka5h.github.io/My-Portfolio" target="_blank" rel="noopener noreferrer" style="display: inline-block; transition: all 0.2s ease; text-decoration: none; color: var(--dark); font-weight: 700; padding: 10px 24px; border: 2px solid var(--dark); border-radius: 8px; margin: 8px 0;" onmouseover="this.style.transform='scale(1.05)'; this.style.backgroundColor='var(--dark)'; this.style.color='#fff';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='transparent'; this.style.color='var(--dark)';">My Portfolio</a>
     <p style="color: var(--dark); font-size: 1.1rem; margin-top: 16px; font-weight: 800;">Thank you!</p>
   </div>
-
 
 </main>
 
 <script>
-  // Disable right-click context menu
   document.addEventListener('contextmenu', event => event.preventDefault());
-
-  // Disable specific keyboard shortcuts for inspect element and copying
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'F12' || 
-        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) || 
-        (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) || 
-        (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) || 
+    if (e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) ||
         (e.ctrlKey && (e.key === 'U' || e.key === 'u')) ||
         (e.ctrlKey && (e.key === 'C' || e.key === 'c'))) {
         e.preventDefault();
     }
   });
-
-  // Prevent drag and drop text copying
   document.addEventListener('dragstart', event => event.preventDefault());
 </script>
-
 </body>
 </html>
